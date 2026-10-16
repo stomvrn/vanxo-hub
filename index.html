@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark"
+      data-urn="urn:vanxo:artifact:dtf-hub:1.0.0" data-version="1.0.0">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0c12" id="metaTheme">
+<meta name="urn" content="urn:vanxo:artifact:dtf-hub:1.0.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none';">
+<title>VanXo · Проектирование Будущего</title>
+<style>
+:root{--bg:#0a0c12;--bg2:#12141c;--bg3:#1a1d28;--bg4:#242834;--line:#242834;--line2:#3a3f52;--t0:#e8ecf2;--t1:#b8bec8;--t2:#8a90a0;--t3:#5a6078;--gold:#e0b95e;--gold-dim:rgba(224,185,94,.14);--gr:#7bc47f;--gr-dim:rgba(123,196,127,.14);--bl:#7aa9d9;--bl-dim:rgba(122,169,217,.14);--or:#f0b350;--or-dim:rgba(240,179,80,.14);--cy:#6ec5c0;--cy-dim:rgba(110,197,192,.14);--pu:#b58ae0;--pu-dim:rgba(181,138,224,.14);--rd:#ff5566;--rd-dim:rgba(255,85,102,.14);--fm:ui-monospace,'SF Mono',Consolas,monospace;--f:-apple-system,BlinkMacSystemFont,system-ui,'Segoe UI',Roboto,sans-serif;--fs:Georgia,serif}
+[data-theme="light"]{--bg:#f5f1e6;--bg2:#fff;--bg3:#efe9d8;--bg4:#e0d8c4;--line:#e0d8c4;--line2:#c8beb0;--t0:#14120a;--t1:#3f3a2e;--t2:#6a6455;--t3:#a8a18e;--gold:#8a6a20;--gold-dim:rgba(138,106,32,.12);--gr:#2f7a3d;--gr-dim:rgba(47,122,61,.1);--bl:#3568a8;--bl-dim:rgba(53,104,168,.1);--or:#b87820;--or-dim:rgba(184,120,32,.12);--cy:#2a8880;--cy-dim:rgba(42,136,128,.1);--pu:#6a4a9a;--pu-dim:rgba(106,74,154,.1);--rd:#c92c2c;--rd-dim:rgba(201,44,44,.1)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--f);font-size:15px;line-height:1.65;color:var(--t0);background:var(--bg);padding:0 20px 60px;max-width:1100px;margin:0 auto;min-height:100vh}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;font-size:inherit}
+a{color:var(--gold);text-decoration:none;border-bottom:1px dotted var(--gold-dim)}
+a:hover{border-bottom-style:solid}
+code{font-family:var(--fm);font-size:12.5px;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--gold)}
+.hd{position:sticky;top:0;z-index:40;background:var(--bg);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:32px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.hd-h{display:flex;align-items:center;gap:12px;flex:1;min-width:200px}
+.hd-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gr));display:flex;align-items:center;justify-content:center;color:#0a0c12;font-weight:900;font-size:15px;font-family:var(--fm)}
+.hd-t{font-family:var(--fs);font-size:1.15rem;font-style:italic;font-weight:600}
+.hd-s{font-family:var(--fm);font-size:10px;color:var(--t3);letter-spacing:.04em}
+.icon-btn{width:36px;height:36px;border-radius:9px;border:1px solid var(--line2);background:var(--bg2);color:var(--t1);display:inline-flex;align-items:center;justify-content:center;font-size:14px;transition:.15s}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold)}
+.hero{padding:32px 0 24px;text-align:center;margin-bottom:32px}
+.hero h1{font-family:var(--fs);font-size:2.4rem;font-style:italic;font-weight:400;line-height:1.15;margin-bottom:12px;background:linear-gradient(135deg,var(--t0),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:1.05rem;color:var(--t1);max-width:64ch;margin:0 auto 8px}
+.hero .meta{font-family:var(--fm);font-size:11px;color:var(--t3);letter-spacing:.05em;margin-top:16px}
+.sect{margin-bottom:44px;scroll-margin-top:90px}
+.sect-h{font-family:var(--fm);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sect-h::after{content:'';flex:1;height:1px;background:var(--line)}
+.sect-h .num{font-family:var(--fm);font-size:11px;font-weight:700;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--bg);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.card p{color:var(--t1);margin-bottom:12px;font-size:14.5px;line-height:1.7}
+.card p:last-child{margin-bottom:0}
+.card strong{color:var(--t0);font-weight:600}
+.card h3{font-family:var(--fs);font-size:1.1rem;font-style:italic;font-weight:600;margin-bottom:10px}
+.quicknav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:32px;padding:12px 14px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;position:sticky;top:70px;z-index:30}
+.quicknav a{font-family:var(--fm);font-size:11px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--bg3);color:var(--t1);border:1px solid transparent;transition:.15s;border-bottom:none}
+.quicknav a:hover{background:var(--gold-dim);color:var(--gold);border-color:rgba(224,185,94,.3)}
+/* FILM CARDS */
+.films{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:16px}
+.film{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px;transition:.18s;position:relative}
+.film:hover{border-color:var(--gold);transform:translateY(-2px)}
+.film-year{font-family:var(--fm);font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--gold);text-transform:uppercase}
+.film-t{font-family:var(--fs);font-size:1.05rem;font-style:italic;font-weight:600;margin:6px 0 8px;line-height:1.3}
+.film-d{font-size:13px;color:var(--t1);line-height:1.6;margin-bottom:10px}
+.film-tags{display:flex;gap:6px;flex-wrap:wrap}
+.film-tag{font-family:var(--fm);font-size:10px;padding:2px 8px;border-radius:6px;background:var(--gold-dim);color:var(--gold)}
+/* QUOTE */
+.quote{background:var(--bg2);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:14px}
+.quote-t{font-family:var(--fs);font-size:1.1rem;font-style:italic;color:var(--t0);line-height:1.6;margin-bottom:8px}
+.quote-s{font-family:var(--fm);font-size:11px;color:var(--t3)}
+/* MAP */
+.map-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.map-wrap{grid-template-columns:1fr}}
+.map-nodes{display:flex;flex-direction:column;gap:8px}
+.node{background:var(--bg2);border:1px solid var(--line);border-left:4px solid var(--line2);border-radius:10px;padding:12px 16px;cursor:pointer;transition:.15s;display:flex;align-items:center;gap:10px}
+.node:hover{border-left-color:var(--gold);transform:translateX(3px)}
+.node.on{border-left-color:var(--gold);background:var(--gold-dim)}
+.node-i{font-size:18px}
+.node-t{font-weight:600;font-size:14px}
+.node-d{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px;position:sticky;top:150px;height:fit-content}
+.node-d h4{font-family:var(--fs);font-size:1.1rem;font-style:italic;margin-bottom:8px}
+.node-d p{color:var(--t1);font-size:14px;line-height:1.7;margin-bottom:10px}
+.node-d p:last-child{margin-bottom:0}
+/* TOOLS */
+.tool-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.tab{padding:8px 16px;border-radius:8px;background:var(--bg3);color:var(--t1);font-size:13px;font-weight:600;transition:.15s;border:1px solid transparent}
+.tab.on{background:var(--gold-dim);color:var(--gold);border-color:rgba(224,185,94,.3)}
+.tab-pane{display:none}
+.tab-pane.on{display:block}
+.form-row{margin-bottom:12px}
+.form-row label{display:block;font-family:var(--fm);font-size:11px;color:var(--t2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+input[type=text],textarea,select{width:100%;padding:12px 14px;font-family:inherit;font-size:14px;background:var(--bg);color:var(--t0);border:1px solid var(--line);border-radius:10px;line-height:1.5}
+textarea{min-height:140px;font-family:var(--fm);font-size:13px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:600;background:var(--gold);color:var(--bg);transition:.15s;border:none;cursor:pointer}
+.btn:hover{opacity:.9}
+.btn.sec{background:var(--bg3);color:var(--t0);border:1px solid var(--line2)}
+.btn.sec:hover{border-color:var(--gold)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+/* VISIT CARD */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.proj{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px;transition:.15s}
+.proj:hover{border-color:var(--gold);transform:translateY(-2px)}
+.proj-t{font-weight:700;font-size:15px;margin-bottom:6px}
+.proj-d{font-size:13px;color:var(--t1);line-height:1.55;margin-bottom:8px}
+.proj-a{font-family:var(--fm);font-size:10px;color:var(--t3)}
+/* MISC */
+.callout{background:var(--gold-dim);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 18px;margin:16px 0;font-size:14px;color:var(--t0);line-height:1.65}
+.callout.gr{background:var(--gr-dim);border-left-color:var(--gr)}
+.callout.bl{background:var(--bl-dim);border-left-color:var(--bl)}
+.callout strong{color:var(--t0)}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--bg2);border:1px solid var(--gr);color:var(--gr);padding:12px 18px;border-radius:10px;font-family:var(--fm);font-size:12px;opacity:0;transition:.3s;pointer-events:none;z-index:99}
+.toast.on{opacity:1}
+.foot{margin-top:60px;padding:24px 0 0;border-top:1px solid var(--line);text-align:center;font-family:var(--fm);font-size:10.5px;color:var(--t3);line-height:1.9}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media(max-width:720px){
+  body{padding:0 14px 40px}
+  .hero h1{font-size:1.7rem}
+  .quicknav{position:static}
+  .node-d{position:static}
+}
+@media print{.hd,.quicknav{display:none}body{background:#fff;color:#000;max-width:none;padding:8mm}.card,.film,.node,.quote{border-color:#ccc;background:#fff}}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd-h">
+    <div class="hd-mark">◆</div>
+    <div>
+      <div class="hd-t">VanXo · Проектирование Будущего</div>
+      <div class="hd-s">хаб · офлайн · без регистрации</div>
+    </div>
+  </div>
+  <div>
+    <button class="icon-btn" type="button" data-act="print" title="Печать">🖨</button>
+    <button class="icon-btn" type="button" data-act="theme" title="Тема">◐</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Хаб для тех, кто строит будущее</h1>
+  <p class="sub">Материалы, инструменты и карта знаний — в одном файле. Работает без интернета. Ничего не отправляется наружу.</p>
+  <p class="meta">Библиотека · Карта знаний · Мастерская · Визитка</p>
+</section>
+
+<nav class="quicknav">
+  <a href="#s-manifest">Манифест</a>
+  <a href="#s-films">Фильмы</a>
+  <a href="#s-quotes">Цитаты</a>
+  <a href="#s-map">Карта знаний</a>
+  <a href="#s-tools">Мастерская</a>
+  <a href="#s-projects">Сделано</a>
+  <a href="#s-contacts">Связь</a>
+</nav>
+
+<!-- 1. МАНИФЕСТ -->
+<section class="sect" id="s-manifest">
+  <div class="sect-h"><span class="num">1</span> Манифест</div>
+  <div class="card">
+    <h3>Зачем этот хаб</h3>
+    <p>Я разделяю философию Жака Фреско. Из неё главное для меня — <strong>знание и инструменты должны быть свободными</strong>. Не товаром, не подпиской, не сервисом, который однажды закроется.</p>
+    <p>Этот хаб — мой вклад. Здесь библиотека фильмов и цитат, карта концепций и мастерская для активистов. Всё в одном файле, всё работает офлайн. Открыл — работает. Через десять лет откроется так же.</p>
+    <p>Ничего не требует. Ни регистрации, ни оплаты, ни почты. Если пригодится — пользуйтесь. Если нет — просто закройте.</p>
+  </div>
+  <div class="callout">
+    <strong>Принцип.</strong> Файл работает полностью автономно. Ни одного запроса в сеть. Ни одной аналитики. Ни одного трекера. Проверяется в инструментах разработчика любого браузера.
+  </div>
+</section>
+
+<!-- 2. ФИЛЬМЫ -->
+<section class="sect" id="s-films">
+  <div class="sect-h"><span class="num">2</span> Фильмы</div>
+  <p style="color:var(--t1);margin-bottom:18px;font-size:14.5px">Ключевые фильмы. Все — в открытом доступе, на YouTube и RuTube. Ищите по названию.</p>
+  <div class="films">
+    <div class="film">
+      <div class="film-year">2012</div>
+      <div class="film-t">Рай или Забвение</div>
+      <div class="film-d">Основной фильм, представляющий цели и предложения Проекта Венера. Что такое ресурсо-ориентированная экономика и почему она возможна уже сегодня.</div>
+      <div class="film-tags"><span class="film-tag">48 мин</span><span class="film-tag">основной</span></div>
+    </div>
+    <div class="film">
+      <div class="film-year">2016</div>
+      <div class="film-t">Выбор за нами</div>
+      <div class="film-d">Как среда и общественные структуры формируют поведение. Представление нового мира, основанного на сотрудничестве, а не конкуренции.</div>
+      <div class="film-tags"><span class="film-tag">глубокий</span><span class="film-tag">среда</span></div>
+    </div>
+    <div class="film">
+      <div class="film-year">2006</div>
+      <div class="film-t">Спроектированное будущее</div>
+      <div class="film-d">О жизни и работе самого Фреско. Его представляют как «современного да Винчи» — инженера, дизайнера и провидца одновременно.</div>
+      <div class="film-tags"><span class="film-tag">биография</span><span class="film-tag">введение</span></div>
+    </div>
+    <div class="film">
+      <div class="film-year">2019</div>
+      <div class="film-t">Мир, достойный грёз</div>
+      <div class="film-d">Последнее интервью Фреско и архивные кадры. Итог его работы, обращённый к следующему поколению.</div>
+      <div class="film-tags"><span class="film-tag">43 мин</span><span class="film-tag">финал</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Книга</h3>
+    <p><strong>«Всё лучшее, что не купишь за деньги»</strong> — фундаментальный труд Фреско, в котором он излагает чертёж своего социально-экономического проекта. Есть русский перевод.</p>
+  </div>
+</section>
+
+<!-- 3. ЦИТАТЫ -->
+<section class="sect" id="s-quotes">
+  <div class="sect-h"><span class="num">3</span> Цитаты</div>
+  <div class="quote">
+    <div class="quote-t">«Если бы мы применили науку и технику к решению проблем, стоящих перед человечеством, мы могли бы создать мир, не имеющий аналогов»</div>
+    <div class="quote-s">— Жак Фреско</div>
+  </div>
+  <div class="quote">
+    <div class="quote-t">«Деньги — это не ресурс, это инструмент для распределения ресурсов. Уберите инструмент — ресурсы останутся»</div>
+    <div class="quote-s">— Жак Фреско, «Рай или Забвение»</div>
+  </div>
+  <div class="quote">
+    <div class="quote-t">«Единственный способ изменить поведение — изменить среду. Пока среда требует от людей конкурировать, они будут конкурировать»</div>
+    <div class="quote-s">— Жак Фреско, «Выбор за нами»</div>
+  </div>
+  <div class="quote">
+    <div class="quote-t">«Мы не можем решить проблемы, используя тот же образ мыслей, который их создал»</div>
+    <div class="quote-s">— Жак Фреско</div>
+  </div>
+  <div class="quote">
+    <div class="quote-t">«Задача не в том, чтобы убедить мир — задача в том, чтобы предложить альтернативу, которая окажется разумнее»</div>
+    <div class="quote-s">— Жак Фреско, из последних интервью</div>
+  </div>
+</section>
+
+<!-- 4. КАРТА ЗНАНИЙ -->
+<section class="sect" id="s-map">
+  <div class="sect-h"><span class="num">4</span> Карта знаний</div>
+  <p style="color:var(--t1);margin-bottom:18px;font-size:14.5px">Кликните на концепцию слева — прочитаете пояснение справа. Это основа философии, разложенная на восемь узлов.</p>
+  <div class="map-wrap">
+    <div class="map-nodes" id="nodes"></div>
+    <div class="node-d" id="nodeDetail">
+      <h4>Выберите концепцию</h4>
+      <p>Кликните на любой узел слева — здесь появится пояснение. Каждый узел — одна из ключевых идей Фреско, разобранная простыми словами.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. МАСТЕРСКАЯ -->
+<section class="sect" id="s-tools">
+  <div class="sect-h"><span class="num">5</span> Мастерская активиста</div>
+  <div class="tool-tabs">
+    <button class="tab on" data-tab="post" type="button">Генератор постов</button>
+    <button class="tab" data-tab="plan" type="button">Планировщик</button>
+    <button class="tab" data-tab="notes" type="button">Заметки</button>
+  </div>
+
+  <div class="tab-pane on" id="pane-post">
+    <div class="card">
+      <h3>Генератор постов для соцсетей</h3>
+      <p>Выберите тему и тип — получите готовый пост. Потом скопируйте в ВК, Telegram или куда нужно.</p>
+      <div class="form-row">
+        <label>Тема</label>
+        <select id="postTopic">
+          <option value="basic">Что такое ресурсо-ориентированная экономика</option>
+          <option value="money">Почему деньги — не ресурс</option>
+          <option value="science">Наука и технологии на службе человека</option>
+          <option value="behavior">Среда формирует поведение</option>
+          <option value="future">Образ будущего без нужды</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Тип</label>
+        <select id="postType">
+          <option value="short">Короткий пост</option>
+          <option value="long">Развёрнутый пост</option>
+          <option value="question">Вопрос для обсуждения</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button class="btn" type="button" data-act="genPost">Сгенерировать</button>
+        <button class="btn sec" type="button" data-act="copyOut" data-target="postOut">Скопировать</button>
+      </div>
+      <div class="form-row" style="margin-top:16px">
+        <label>Готовый пост</label>
+        <textarea id="postOut" readonly placeholder="Нажмите «Сгенерировать»"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="pane-plan">
+    <div class="card">
+      <h3>Планировщик встреч и акций</h3>
+      <p>Добавьте события. Всё сохраняется в браузере — не уходит никуда. Открывается через год — остаётся на месте.</p>
+      <div class="form-row">
+        <label>Что</label>
+        <input type="text" id="evTitle" placeholder="Например: обсуждение фильма">
+      </div>
+      <div class="form-row">
+        <label>Когда</label>
+        <input type="text" id="evDate" placeholder="Например: 25 октября, 19:00">
+      </div>
+      <div class="actions">
+        <button class="btn" type="button" data-act="addEvent">Добавить</button>
+        <button class="btn sec" type="button" data-act="clearEvents">Очистить всё</button>
+      </div>
+      <div id="eventList" style="margin-top:16px"></div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="pane-notes">
+    <div class="card">
+      <h3>Заметки</h3>
+      <p>Свободное поле. Сохраняется автоматически при вводе. Работает офлайн.</p>
+      <textarea id="notesArea" style="min-height:300px" placeholder="Пишите здесь свои мысли..."></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ПРОЕКТЫ -->
+<section class="sect" id="s-projects">
+  <div class="sect-h"><span class="num">6</span> Сделано в VanXo</div>
+  <p style="color:var(--t1);margin-bottom:18px;font-size:14.5px">Инструменты, которые я собрал. Все работают офлайн, без регистрации. Некоторые из них — открытые, некоторые — в разработке.</p>
+  <div class="projects">
+    <div class="proj">
+      <div class="proj-t">Semantic Validator</div>
+      <div class="proj-d">Проверяет HTML-код на 47 параметров: структуру, семантику, доступность, валидность. Один файл, работает офлайн.</div>
+      <div class="proj-a">urn:vanxo:artifact:semantic-validator:2.0.0</div>
+    </div>
+    <div class="proj">
+      <div class="proj-t">VanXo Desktop</div>
+      <div class="proj-d">Настольное приложение для Windows: 16 артефактов в одном окне. Портативный, без установки.</div>
+      <div class="proj-a">urn:vanxo:artifact:desktop:1.0.0</div>
+    </div>
+    <div class="proj">
+      <div class="proj-t">Аудит сайта</div>
+      <div class="proj-d">Проверка HTML на типичные ошибки: alt, заголовки, устаревшие теги, доступность.</div>
+      <div class="proj-a">urn:vanxo:artifact:site-audit:1.0.0</div>
+    </div>
+    <div class="proj">
+      <div class="proj-t">Карта экосистемы</div>
+      <div class="proj-d">Наглядное пособие: как устроена система личных офлайн-инструментов. 6 слоёв, поток работы, план.</div>
+      <div class="proj-a">urn:vanxo:artifact:universe-map:1.2.0</div>
+    </div>
+  </div>
+  <div class="callout bl">
+    <strong>Что можно сделать вместе.</strong> Если у вас есть задача, которая требует офлайн-инструмента — напишите. Соберу под неё. Без оплаты, без условий.
+  </div>
+</section>
+
+<!-- 7. КОНТАКТЫ -->
+<section class="sect" id="s-contacts">
+  <div class="sect-h"><span class="num">7</span> Связь</div>
+  <div class="card">
+    <h3>Как со мной связаться</h3>
+    <p>Через GitHub или ВКонтакте. Пишите напрямую — отвечу лично.</p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/stomvrn">github.com/stomvrn</a></p>
+    <p><strong>ВК:</strong> ссылка на вашу группу</p>
+    <p><strong>Почта:</strong> ссылка на вашу почту</p>
+  </div>
+  <div class="callout gr">
+    <strong>Что можно попросить.</strong> Помочь с сайтом. Собрать простой инструмент под задачу. Объяснить, как уйти от зависимости от чужих серверов. Всё — бесплатно, без обязательств.
+  </div>
+</section>
+
+<footer class="foot">
+  VanXo · Проектирование Будущего · v1.0.0<br>
+  Работает офлайн · данные не покидают устройство<br>
+  URN: <code>urn:vanxo:artifact:dtf-hub:1.0.0</code>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+(function(){
+function $(id){ return document.getElementById(id); }
+var State = { theme:'dark', notesTimer:null, nodes:[] };
+try{ var t = localStorage.getItem('hub.theme'); if(t==='light'||t==='dark') State.theme=t; }catch(e){}
+
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme', State.theme);
+  var m = $('metaTheme'); if(m) m.setAttribute('content', State.theme==='dark'?'#0a0c12':'#f5f1e6');
+}
+
+function toast(msg, ok){
+  var el = $('toast'); el.textContent = msg;
+  el.style.borderColor = ok ? 'var(--gr)' : 'var(--rd)';
+  el.style.color = ok ? 'var(--gr)' : 'var(--rd)';
+  el.classList.add('on');
+  setTimeout(function(){ el.classList.remove('on'); }, 2000);
+}
+
+// ── КАРТА ЗНАНИЙ ──
+var NODES = [
+  { i:'🌍', t:'Ресурсо-ориентированная экономика',
+    d:'Система, в которой ресурсы планеты объявлены общим достоянием. Товары и услуги распределяются с помощью технологий — без денег, кредитов и долгов. Деньги не отменяются законом, они просто становятся ненужными, как сегодня ненужны каменные топоры.' },
+  { i:'🔬', t:'Наука как метод',
+    d:'Наука — это не набор догм, а метод проб и ошибок. Фреско предлагал применять научный метод не только к природе, но и к обществу: проверять гипотезы, отбрасывать неработающие идеи, двигаться к тому, что работает.' },
+  { i:'🌱', t:'Среда формирует поведение',
+    d:'Люди не «плохие» и не «хорошие» от рождения. Их поведение определяется средой: что доступно, что ценно, что поощряется. Измените среду — изменится поведение. Это ключевая идея Фреско.' },
+  { i:'⚙️', t:'Технологии для всех',
+    d:'Современные технологии позволяют обеспечить всех людей всем необходимым. Проблема не в нехватке ресурсов, а в системе распределения. Автоматизация освобождает человека от рутинного труда.' },
+  { i:'🏙️', t:'Города как системы',
+    d:'Фреско проектировал города с замкнутыми циклами: энергия от солнца и ветра, вода перерабатывается, отходы становятся сырьём. Город — как живой организм, а не как машина для эксплуатации.' },
+  { i:'🤝', t:'Сотрудничество вместо конкуренции',
+    d:'В ресурсо-ориентированной экономике нет нужды конкурировать — всё, что нужно, доступно. Люди сотрудничают, потому что это выгоднее: вместе можно сделать больше, чем в одиночку.' },
+  { i:'🎓', t:'Знание как достояние',
+    d:'Знание не должно быть товаром. Оно должно быть свободным и доступным. Чем больше знают люди, тем разумнее решения они принимают. Образование — не подготовка к рынку труда, а развитие личности.' },
+  { i:'🚀', t:'Переход без революции',
+    d:'Фреско не призывал к насильственному свержению. Он предлагал строить альтернативу рядом: создавать работающие примеры, показывать, что можно иначе. Когда альтернатива станет очевидно разумнее — люди выберут её сами.' }
+];
+
+function renderNodes(){
+  var host = $('nodes');
+  if(!host) return;
+  var html = '';
+  for(var i=0; i<NODES.length; i++){
+    html += '<div class="node" data-node="'+i+'"><span class="node-i">'+NODES[i].i+'</span><span class="node-t">'+NODES[i].t+'</span></div>';
+  }
+  host.innerHTML = html;
+}
+
+function showNode(i){
+  var n = NODES[i];
+  if(!n) return;
+  var host = $('nodeDetail');
+  host.innerHTML = '<h4>'+n.i+' '+n.t+'</h4><p>'+n.d+'</p>';
+  var nodes = document.querySelectorAll('.node');
+  for(var k=0; k<nodes.length; k++){
+    nodes[k].classList.toggle('on', k===i);
+  }
+}
+
+// ── ГЕНЕРАТОР ПОСТОВ ──
+var POSTS = {
+  basic: {
+    short: 'Что такое ресурсо-ориентированная экономика?\n\nЭто система, где ресурсы — общее достояние, а распределение идёт через технологии, а не через деньги. Не утопия, а инженерная задача: при сегодняшнем уровне производства можно обеспечить всех.\n\nДеньги — не ресурс. Это инструмент распределения. Уберите инструмент — ресурсы останутся.',
+    long: 'Что такое ресурсо-ориентированная экономика?\n\nМы привыкли думать, что ресурсов на всех не хватит. Это не так. Сегодня технологии позволяют производить столько, сколько нужно каждому — проблема не в количестве, а в системе распределения.\n\nРесурсо-ориентированная экономика предлагает:\n\n• Ресурсы планеты — общее достояние, а не чья-то собственность.\n• Распределение — через технологии, а не через рынок.\n• Деньги не отменяются законом — они просто становятся ненужными.\n• Автоматизация освобождает человека от рутинного труда.\n• Города проектируются как замкнутые циклы: энергия, вода, отходы.\n\nЭто не утопия. Это инженерная задача, которую можно решить — если поставить её правильно.\n\nЖак Фреско посвятил её решению всю жизнь.',
+    question: 'Вопрос для обсуждения.\n\nЕсли ресурсов достаточно, технологии есть, а проблема только в распределении — почему мы продолжаем жить в системе, где кто-то голодает?\n\nЧто мешает нам перейти к другой модели?\n\nВаши мысли?'
+  },
+  money: {
+    short: 'Деньги — не ресурс.\n\nЭто инструмент для распределения ресурсов. Как линейка — не расстояние, а способ его измерить. Уберите инструмент — ресурсы останутся.\n\nВопрос не в том, чтобы «отменить деньги». Вопрос в том, что делать, когда они станут ненужными.',
+    long: 'Деньги — не ресурс.\n\nРесурс — это зерно, металл, энергия, труд. Деньги — это способ договориться, кому что достанется. Инструмент распределения, не более.\n\nКогда ресурсов мало, деньги работают как регулятор: кто-то получает, кто-то нет. Когда ресурсов достаточно — деньги становятся тормозом.\n\nПредставьте: на складе еда для всех. Но чтобы её получить, нужна бумажка. У кого-то бумажки нет. Еда портится, человек голодает. Это не проблема ресурсов — это проблема инструмента.\n\nФреско предлагал заменить инструмент. Не «отменить деньги», а сделать их ненужными — как стали ненужными каменные топоры.',
+    question: 'Вопрос для обсуждения.\n\nЕсли завтра исчезнут все деньги, что изменится в вашей жизни? Что вы сможете делать, чего не можете сейчас?\n\nЧто мешает нам начать это делать уже сегодня?'
+  },
+  science: {
+    short: 'Наука — это метод.\n\nНе догма, не вера, не священное писание. Метод проб и ошибок: гипотеза → проверка → вывод. Работает с природой — сработает и с обществом.\n\nПочему мы не применяем научный метод к тому, как устроена наша жизнь?',
+    long: 'Наука — это метод, а не догма.\n\nМы привыкли думать, что наука — это что-то про физику и химию. Но научный метод — это способ думать, а не область знаний.\n\nГипотеза. Эксперимент. Проверка. Если не работает — отбросить. Если работает — оставить. Так устроена любая настоящая наука.\n\nФреско предлагал применить этот метод к обществу. Не «так принято» и не «так заведено» — а гипотеза, проверка, вывод.\n\nПочему мы продолжаем жить по правилам, которые не проверяли? Почему не задаём вопрос «а работает ли это?»\n\nНаука — не то, что делают в лабораториях. Наука — это способ задавать правильные вопросы.',
+    question: 'Вопрос для обсуждения.\n\nКакое из привычных вам правил жизни вы бы проверили научным методом, если бы могли?\n\nЧто было бы гипотезой? Как бы вы её проверили? Что было бы результатом?'
+  },
+  behavior: {
+    short: 'Среда формирует поведение.\n\nЛюди не рождаются «плохими» или «хорошими». Они становятся такими, потому что среда, в которой они живут, требует определённого поведения.\n\nХотите изменить людей? Измените среду.',
+    long: 'Среда формирует поведение.\n\nМы привыкли думать, что человек — это его характер, его воля, его выбор. Но это не совсем так.\n\nЧеловек, выросший в бедности, ведёт себя иначе, чем человек, выросший в достатке. Не потому что «хуже» или «лучше», а потому что среда требовала разного.\n\nПоставьте человека в среду, где нужно конкурировать — он будет конкурировать. Поставьте в среду, где выгодно сотрудничать — он будет сотрудничать.\n\nФреско говорил: не пытайтесь изменить людей. Измените среду — и люди изменятся сами.\n\nЭто не значит, что человек — пустой сосуд. Это значит, что характер не является приговором. Он — следствие условий. Измените условия — изменится характер.',
+    question: 'Вопрос для обсуждения.\n\nВспомните момент, когда ваше поведение изменилось. Что этому предшествовало?\n\nКакова была роль среды — людей, места, обстоятельств?\n\nЧто бы изменилось, если бы среда была другой?'
+  },
+  future: {
+    short: 'Образ будущего без нужды.\n\nГорода, где энергия от солнца. Еда — сколько нужно. Жильё — у каждого. Образование — свободное.\n\nРабота — не ради выживания, а ради интереса. Технологии освобождают от рутины.\n\nНе «когда-нибудь». Не «если человечество поумнеет». А как инженерная задача, которую можно решить.',
+    long: 'Образ будущего без нужды.\n\nЧто, если представить город, в котором:\n\n• Энергия приходит от солнца и ветра.\n• Вода перерабатывается в замкнутом цикле.\n• Еда производится рядом, без длинных цепочек поставок.\n• Жильё есть у каждого.\n• Образование бесплатное и свободное.\n• Медицина доступна всем.\n• Работа — не ради денег, а ради интереса.\n\nЭто не фантастика. Каждый из этих пунктов уже существует — где-то, в каком-то виде. Их нужно не изобрести, а соединить.\n\nФреско проектировал такие города. Не как утопию, а как инженерный проект. С расчётами, схемами, материалами.\n\nОн говорил: будущее не наступит само. Его нужно спроектировать. И начать это делать уже сегодня.',
+    question: 'Вопрос для обсуждения.\n\nЕсли бы вы могли спроектировать свой город будущего, что было бы в нём обязательно?\n\nКакой из пунктов — энергия, вода, еда, жильё, образование, медицина — вы бы поставили первым?\n\nПочему именно он?'
+  }
+};
+
+function genPost(){
+  var topic = $('postTopic').value;
+  var type = $('postType').value;
+  var data = POSTS[topic];
+  if(!data){ toast('Тема не найдена', false); return; }
+  var text = data[type] || data.short;
+  $('postOut').value = text;
+  toast('Пост готов', true);
+}
+
+function copyOut(id){
+  var el = $(id);
+  if(!el || !el.value){ toast('Нечего копировать', false); return; }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(el.value).then(function(){ toast('Скопировано', true); });
+  } else {
+    el.select();
+    try{ document.execCommand('copy'); toast('Скопировано', true); }catch(err){ toast('Ошибка копирования', false); }
+    el.blur();
+  }
+}
+
+// ── ПЛАНИРОВЩИК ──
+function loadEvents(){
+  try{ return JSON.parse(localStorage.getItem('hub.events')||'[]'); }catch(e){ return []; }
+}
+function saveEvents(arr){
+  try{ localStorage.setItem('hub.events', JSON.stringify(arr)); }catch(e){}
+}
+function renderEvents(){
+  var arr = loadEvents();
+  var host = $('eventList');
+  if(!host) return;
+  if(!arr.length){ host.innerHTML = '<p style="color:var(--t3);font-size:13px">Пока ничего не добавлено.</p>'; return; }
+  var html = '';
+  for(var i=0; i<arr.length; i++){
+    html += '<div class="card" style="padding:12px 16px;margin-bottom:8px"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><div><strong>'+esc(arr[i].t)+'</strong><br><span style="font-family:var(--fm);font-size:12px;color:var(--t2)">'+esc(arr[i].d)+'</span></div><button class="btn sec" style="padding:6px 12px" type="button" data-act="delEvent" data-idx="'+i+'">✕</button></div></div>';
+  }
+  host.innerHTML = html;
+}
+function addEvent(){
+  var t = $('evTitle').value.trim();
+  var d = $('evDate').value.trim();
+  if(!t){ toast('Введите, что за событие', false); return; }
+  var arr = loadEvents();
+  arr.push({ t:t, d:d });
+  saveEvents(arr);
+  $('evTitle').value = ''; $('evDate').value = '';
+  renderEvents();
+  toast('Событие добавлено', true);
+}
+function delEvent(idx){
+  var arr = loadEvents();
+  arr.splice(idx, 1);
+  saveEvents(arr);
+  renderEvents();
+}
+function clearEvents(){
+  if(!confirm('Удалить все события?')) return;
+  saveEvents([]);
+  renderEvents();
+  toast('Очищено', true);
+}
+function esc(s){
+  if(s===null||s===undefined) return '';
+  return String(s).replace(/[&<>"']/g, function(c){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+  });
+}
+
+// ── ЗАМЕТКИ ──
+function loadNotes(){
+  try{ return localStorage.getItem('hub.notes')||''; }catch(e){ return ''; }
+}
+function saveNotes(text){
+  try{ localStorage.setItem('hub.notes', text); }catch(e){}
+}
+
+// ── ДЕЛЕГИРОВАНИЕ ──
+document.addEventListener('click', function(e){
+  var t = e.target.closest ? e.target.closest('[data-act],[data-tab],[data-node]') : null;
+  if(!t) return;
+
+  if(t.hasAttribute('data-node')){
+    var idx = parseInt(t.getAttribute('data-node'), 10);
+    showNode(idx);
+    return;
+  }
+  if(t.hasAttribute('data-tab')){
+    var tabId = t.getAttribute('data-tab');
+    var tabs = document.querySelectorAll('.tab');
+    for(var i=0; i<tabs.length; i++) tabs[i].classList.toggle('on', tabs[i]===t);
+    var panes = document.querySelectorAll('.tab-pane');
+    for(var j=0; j<panes.length; j++) panes[j].classList.toggle('on', panes[j].id==='pane-'+tabId);
+    return;
+  }
+  var act = t.getAttribute('data-act');
+  if(act === 'theme'){
+    State.theme = State.theme === 'dark' ? 'light' : 'dark';
+    try{ localStorage.setItem('hub.theme', State.theme); }catch(err){}
+    applyTheme();
+  } else if(act === 'print'){ window.print(); }
+  else if(act === 'genPost'){ genPost(); }
+  else if(act === 'copyOut'){ copyOut(t.getAttribute('data-target')); }
+  else if(act === 'addEvent'){ addEvent(); }
+  else if(act === 'delEvent'){ delEvent(parseInt(t.getAttribute('data-idx'),10)); }
+  else if(act === 'clearEvents'){ clearEvents(); }
+});
+
+// ── ИНИЦИАЛИЗАЦИЯ ──
+function init(){
+  applyTheme();
+  renderNodes();
+  renderEvents();
+  var n = $('notesArea');
+  if(n){ n.value = loadNotes(); }
+  if(n){
+    n.addEventListener('input', function(){
+      clearTimeout(State.notesTimer);
+      State.notesTimer = setTimeout(function(){ saveNotes(n.value); }, 400);
+    });
+  }
+  if(window.console && console.log){
+    console.log('%c VanXo · Проектирование Будущего ',
+      'background:linear-gradient(135deg,#e0b95e,#7bc47f);color:#0a0c12;padding:3px 10px;border-radius:4px;font-weight:700');
+    console.log('  Хаб · офлайн · данные не покидают устройство');
+  }
+}
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();
+})();
+</script>
+</body>
+</html>
