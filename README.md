@@ -32,7 +32,7 @@
 ## Контакты
 
 - GitHub: [@stomvrn](https://github.com/stomvrn)
-- ВКонтакте: [[ссылка](https://vk.ru/ivan_kholin_digital)]
+- ВКонтакте: [[VK](https://vk.ru/ivan_kholin_digital)]
 
 ---
 
